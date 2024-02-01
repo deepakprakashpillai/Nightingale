@@ -1,1 +1,2 @@
 HI this is just a file to test 
+This is modified by brite.
