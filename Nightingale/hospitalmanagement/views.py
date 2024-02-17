@@ -118,4 +118,40 @@ def patient_details(request, id):
     elif request.method == 'DELETE':
         patient.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-    
+
+#Medicines API
+@api_view(['GET', 'POST'])
+def medicines_details(request):
+    if request.method == 'GET':
+        all_medicines = Medicine.objects.all()
+        serializer = MedicineSerializer(all_medicines, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = MedicineSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET', 'PUT','DELETE'])
+def medicine_details(request, id):
+    try:
+        medicine = Medicine.objects.get(pk=id)
+    except Medicine.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        serializer = MedicineSerializer(medicine)
+        return Response(serializer.data)
+    elif request.method == 'PUT':
+        serializer = MedicineSerializer(medicine, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        medicine.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+  
