@@ -8,4 +8,6 @@ urlpatterns = [
     path("nurses/<int:id>", views.nurse_details),
     path("doctors", views.doctors_details),
     path("doctors/<int:id>", views.doctor_details),
+    path("patients", views.patients_details),
+    path("patients/<int:id>", views.patient_details),
 ]
