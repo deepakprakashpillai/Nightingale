@@ -11,14 +11,9 @@ def index(request):
     return HttpResponse("Hello, world. You're at the Hospitalmanagement index.")
 
 
-def nurses_details(request):
-    all_nurses = Nurse.objects.all()
-    all_nurses_dict = {'nurses': all_nurses}
-    return render(request, 'nurses.html', all_nurses_dict)
-
 
 @api_view(['GET', 'POST'])
-def get_all_nurse_details(request):
+def nurses_details(request):
     if request.method == 'GET':
         all_nurses = Nurse.objects.all()
         serializer = NurseSerializer(all_nurses, many=True)
@@ -33,7 +28,7 @@ def get_all_nurse_details(request):
 
 
 @api_view(['GET', 'PUT','DELETE'])
-def get_nurse_details(request, id):
+def nurse_details(request, id):
     try:
         nurse = Nurse.objects.get(pk=id)
     except Nurse.DoesNotExist:
