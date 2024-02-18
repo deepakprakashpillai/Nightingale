@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from . models import Nurse,Doctor,Patient,Medicine,Disease
-from . serializers import NurseSerializer,DoctorSerializer,PatientSerializer,MedicineSerializer,DiseaseSerializer
+from . models import Nurse, Doctor, Patient, Medicine, Disease
+from . serializers import NurseSerializer, DoctorSerializer, PatientSerializer, MedicineSerializer, DiseaseSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -11,7 +11,7 @@ def index(request):
     return HttpResponse("Hello, world. You're at the Hospitalmanagement index.")
 
 
-#Nurses API
+# Nurses API
 @api_view(['GET', 'POST'])
 def nurses_details(request):
     if request.method == 'GET':
@@ -27,7 +27,7 @@ def nurses_details(request):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET', 'PUT','DELETE'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def nurse_details(request, id):
     try:
         nurse = Nurse.objects.get(pk=id)
@@ -47,7 +47,9 @@ def nurse_details(request, id):
         nurse.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-#Doctors API
+# Doctors API
+
+
 @api_view(['GET', 'POST'])
 def doctors_details(request):
     if request.method == 'GET':
@@ -63,7 +65,7 @@ def doctors_details(request):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET', 'PUT','DELETE'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def doctor_details(request, id):
     try:
         doctor = Doctor.objects.get(pk=id)
@@ -82,8 +84,10 @@ def doctor_details(request, id):
     elif request.method == 'DELETE':
         doctor.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-    
-#Patients API
+
+# Patients API
+
+
 @api_view(['GET', 'POST'])
 def patients_details(request):
     if request.method == 'GET':
@@ -99,7 +103,7 @@ def patients_details(request):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET', 'PUT','DELETE'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def patient_details(request, id):
     try:
         patient = Patient.objects.get(pk=id)
@@ -119,7 +123,9 @@ def patient_details(request, id):
         patient.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-#Medicines API
+# Medicines API
+
+
 @api_view(['GET', 'POST'])
 def medicines_details(request):
     if request.method == 'GET':
@@ -135,7 +141,7 @@ def medicines_details(request):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET', 'PUT','DELETE'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def medicine_details(request, id):
     try:
         medicine = Medicine.objects.get(pk=id)
@@ -154,8 +160,10 @@ def medicine_details(request, id):
     elif request.method == 'DELETE':
         medicine.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
- 
-#Diseases API
+
+# Diseases API
+
+
 @api_view(['GET', 'POST'])
 def diseases_details(request):
     if request.method == 'GET':
@@ -171,7 +179,7 @@ def diseases_details(request):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET', 'PUT','DELETE'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def disease_details(request, id):
     try:
         disease = Disease.objects.get(pk=id)
@@ -189,4 +197,4 @@ def disease_details(request, id):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
         disease.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT) 
+        return Response(status=status.HTTP_204_NO_CONTENT)
