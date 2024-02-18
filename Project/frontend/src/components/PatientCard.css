@@ -1,0 +1,43 @@
+.card{
+    width: 350px;
+    height: 170px;
+    background-color: #E8F3F1;
+    border-radius: 15px;
+    box-shadow: 49px 44px 82px -41px rgba(0,0,0,0.47);
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.row-1 p{
+    font-size: 12px;
+}
+
+.row-2 p{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.row-3 p{
+    font-size: 13px;
+}
+
+.row-4 p{
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.row-5{
+    display: flex;
+    justify-content: end;
+}
+
+.row-5 button{
+    border: none;
+    margin-right: 20px;
+    background-color: #199A8E;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 12px;
+}

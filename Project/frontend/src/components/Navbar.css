@@ -1,0 +1,40 @@
+img{
+    position: absolute;
+    width: 38px;
+    height: 32px;
+    top: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.nav{
+    background-color: #E8F3F1;
+    height: 70px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    justify-content: center;
+    font-size: ;
+    position: relative;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item p{
+    position: absolute;
+    bottom: 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.container-nav{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
