@@ -25,8 +25,10 @@ class Doctor(models.Model):
     sex = models.CharField(max_length=1)
     dob = models.DateField()
     age = models.PositiveIntegerField()
+
     def __str__(self):
         return self.name
+
 
 class Patient(models.Model):
     name = models.CharField(max_length=30)
@@ -36,8 +38,15 @@ class Patient(models.Model):
     sex = models.CharField(max_length=1)
     dob = models.DateField()
     age = models.PositiveIntegerField()
+    # is_admitted = models.BooleanField(default = 'False')
+    # building_name = models.CharField(max_length = 50)
+    # floor_no  = models.PositiveSmallIntegerField()
+    # room_no = models.CharField(max_length = 10)
+    # bed_no = models.CharField(max_length = 10)
+
     def __str__(self):
         return self.name
+
 
 class Patient_Nurse(models.Model):
     patient_id = models.ForeignKey(Patient, on_delete=models.CASCADE)
@@ -57,8 +66,10 @@ class Disease(models.Model):
     precaution_2 = models.CharField(max_length=250)
     precaution_3 = models.CharField(max_length=250)
     Description = models.CharField(max_length=250)
+
     def __str__(self):
         return self.name
+
 
 class Medicine(models.Model):
     name = models.CharField(max_length=30)
@@ -66,5 +77,17 @@ class Medicine(models.Model):
     side_effects = models.CharField(max_length=250)
     Manufacturer = models.CharField(max_length=250)
     Uses = models.CharField(max_length=250)
+
     def __str__(self):
         return self.name
+
+# class medication, medicationHistory
+
+
+class Admitted(models.Model):
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    doctor = models.ManyToManyField(Doctor)
+    building_name = models.CharField(max_length=50)
+    floor_no = models.PositiveSmallIntegerField()
+    room_no = models.CharField(max_length=10)
+    bed_no = models.CharField(max_length=10)
