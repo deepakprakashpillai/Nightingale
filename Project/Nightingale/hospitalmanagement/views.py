@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from . models import Nurse, Doctor, Patient, Medicine, Disease, Patient_Doctor
-from . serializers import NurseSerializer, DoctorSerializer, PatientSerializer, MedicineSerializer, DiseaseSerializer, PatientDoctorSerializer
+from . models import Nurse, Doctor, Patient, Medicine, Disease
+from . serializers import NurseSerializer, DoctorSerializer, PatientSerializer, MedicineSerializer, DiseaseSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -200,9 +200,9 @@ def disease_details(request, id):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-@api_view(['GET'])
-def patient_doctors_details(request):
-    all_pds = Patient_Doctor.objects.select_related(
-        'patient_id', 'doctor_id').all()
-    serializer = PatientDoctorSerializer(all_pds, many=True)
-    return Response(serializer.data)
+#@api_view(['GET'])
+#def patient_doctors_details(request):
+#    all_pds = Patient_Doctor.objects.select_related(
+#        'patient_id', 'doctor_id').all()
+#    serializer = PatientDoctorSerializer(all_pds, many=True)
+#    return Response(serializer.data)
