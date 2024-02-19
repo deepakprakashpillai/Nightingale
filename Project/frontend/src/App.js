@@ -9,6 +9,7 @@ import {
 import HomePage, { admitLoader } from "./pages/HomePage";
 import PatientPage, { patientLoader } from "./pages/PatientPage";
 import ErrorPage from "./pages/ErrorPage";
+import SupportPage, { doctorLoader } from "./pages/SupportPage";
 
 // Example
 const router = createBrowserRouter(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
         <Route index element={<PatientPage />} />
         <Route path=":id" element={<PatientPage />} loader={patientLoader} />
       </Route>
+      <Route path="support" element={<SupportPage />} />
     </Route>
   )
 );

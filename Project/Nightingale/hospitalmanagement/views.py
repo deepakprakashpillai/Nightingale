@@ -52,8 +52,11 @@ def nurse_details(request, id):
 
 @api_view(['GET', 'POST'])
 def doctors_details(request):
+    search_term = request.query_params.get('search')
     if request.method == 'GET':
         all_doctors = Doctor.objects.all()
+        if search_term is not None:
+            all_doctors = all_doctors.filter(name__icontains=search_term)
         serializer = DoctorSerializer(all_doctors, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
@@ -226,3 +229,15 @@ def admitted_details(request, id):
     if request.method == 'GET':
         serializer = AdmittedSerializer(admit)
         return Response(serializer.data)
+
+
+@api_view(['POST', 'GET'])
+def doctor_list(request):
+    if request.method == 'POST':
+        searchterm = request.POST.get('searchterm')
+    try:
+        doctor = Doctor.objects.filter(name__icontains=searchterm)
+    except Doctor.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    serializer = DoctorSerializer(doctor)
+    return Response(serializer.data)
