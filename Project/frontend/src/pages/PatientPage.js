@@ -3,6 +3,7 @@ import PatientDetails from "../components/PatientDetails";
 import { useLoaderData, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import PatientCard from "../components/PatientCard";
+import "./PatientPage.css"
 
 const API_URL = "http://127.0.0.1:8000/admitted/";
 
@@ -12,19 +13,16 @@ const PatientPage = () => {
   return (
     <>
       <Navbar />
-      <p>{patient.building_name}</p>
 
-      <div className="patient-card-container">
-        {Object.keys(id).length > 0 ? (
-          <>
-            <PatientCard admit={patient} />
-          </>
-        ) : (
-          <div className="empty-patients">
-            <h2>NO patients found!</h2>
-          </div>
-        )}
-      </div>
+      {Object.keys(id).length > 0 ? (
+        <>
+          <PatientDetails patient={patient} />
+        </>
+      ) : (
+        <div className="empty-patients">
+          <h2>NO patients found!</h2>
+        </div>
+      )}
     </>
   );
 };

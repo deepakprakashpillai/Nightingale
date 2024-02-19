@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const PatientCard = ({admit}) => {
+    const navigate = useNavigate();
     return (
         <div className='card'>
             <div className="row-1">
@@ -16,7 +18,7 @@ const PatientCard = ({admit}) => {
             <p>{admit.disease[0].name}</p>
         </div>
         <div className="row-5">
-            <button>KNOW MORE</button>
+            <button onClick={()=>navigate("/patient/"+admit.id)}>KNOW MORE</button>
         </div>
             
         </div>
