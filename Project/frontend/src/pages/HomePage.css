@@ -18,6 +18,12 @@
     margin-top: 20px;
 }
 
+.row-4-5{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .row-1 p{
     font-size: 12px;
 }
@@ -34,11 +40,18 @@
 .row-4 p{
     font-size: 13px;
     font-weight: 900;
+    display: inline-block;
+    margin: 0;
 }
 
 .row-5{
     display: flex;
     justify-content: end;
+    margin: 0;
+}
+
+.row-5 p{
+    margin: 0;
 }
 
 .row-5 button{

@@ -14,12 +14,17 @@ const PatientCard = ({admit}) => {
         <div className="row-3">
             <p>Admitted on : {admit.admitted_date}</p>
         </div>
-        <div className="row-4">
-            <p>{admit.disease[0].name}</p>
+        <div className='row-4-5'>
+            <div className="row-4">
+                <p>{admit.disease.map((disease) => (
+                            <p> {disease.name+" ,   "} </p>
+                            ))}</p>
+            </div>
+            <div className="row-5">
+                <button onClick={()=>navigate("/patient/"+admit.id)}>KNOW MORE</button>
+            </div>
         </div>
-        <div className="row-5">
-            <button onClick={()=>navigate("/patient/"+admit.id)}>KNOW MORE</button>
-        </div>
+        
             
         </div>
     );
