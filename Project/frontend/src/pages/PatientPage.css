@@ -1,9 +1,0 @@
-.patient-card-container{
-    background-color: aqua;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
-}

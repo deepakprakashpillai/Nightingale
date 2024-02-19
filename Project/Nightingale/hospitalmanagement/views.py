@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from . models import Nurse, Doctor, Patient, Medicine, Disease
-from . serializers import NurseSerializer, DoctorSerializer, PatientSerializer, MedicineSerializer, DiseaseSerializer
+from . models import Nurse, Doctor, Patient, Medicine, Disease, Admitted
+from . serializers import NurseSerializer, DoctorSerializer, PatientSerializer, MedicineSerializer, DiseaseSerializer, AdmittedSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -200,9 +200,29 @@ def disease_details(request, id):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-#@api_view(['GET'])
-#def patient_doctors_details(request):
+# @api_view(['GET'])
+# def patient_doctors_details(request):
 #    all_pds = Patient_Doctor.objects.select_related(
 #        'patient_id', 'doctor_id').all()
 #    serializer = PatientDoctorSerializer(all_pds, many=True)
 #    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def all_admitted_details(request):
+    all_admits = Admitted.objects.select_related(
+        'patient').prefetch_related('disease', 'doctor').all()
+    serializer = AdmittedSerializer(all_admits, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def admitted_details(request, id):
+    try:
+        admit = Admitted.objects.select_related(
+            'patient').prefetch_related('disease', 'doctor').get(pk=id)
+    except Admitted.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        serializer = AdmittedSerializer(admit)
+        return Response(serializer.data)

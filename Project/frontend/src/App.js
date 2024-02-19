@@ -1,7 +1,29 @@
 import React from "react";
-import PatientPage from "./pages/PatientPage";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+  Routes,
+} from "react-router-dom";
+import HomePage, { admitLoader } from "./pages/HomePage";
+import PatientPage, { patientLoader } from "./pages/PatientPage";
+import ErrorPage from "./pages/ErrorPage";
 
-const App = () => {
-  return <PatientPage />;
-};
+// Example
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/">
+      <Route index element={<HomePage />} loader={admitLoader} />
+      <Route path="home" element={<HomePage />} loader={admitLoader} />
+      <Route path="patient">
+        <Route index element={<PatientPage />} />
+        <Route path=":id" element={<PatientPage />} loader={patientLoader} />
+      </Route>
+    </Route>
+  )
+);
+
+const App = () => <RouterProvider router={router} />;
+
 export default App;

@@ -84,3 +84,6 @@ class Admitted(models.Model):
     room_no = models.CharField(max_length=10)
     bed_no = models.CharField(max_length=10)
     admitted_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.patient.name} in Bed {self.bed_no}| Room {self.room_no}'

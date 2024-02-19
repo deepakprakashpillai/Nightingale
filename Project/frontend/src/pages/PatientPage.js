@@ -1,31 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import PatientDetails from "../components/PatientDetails";
+import { useLoaderData, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import PatientCard from "../components/PatientCard";
-import "./PatientPage.css";
 
-const API_URL = "http://127.0.0.1:8000/patients";
+const API_URL = "http://127.0.0.1:8000/admitted/";
 
 const PatientPage = () => {
-  const [patients, setPatients] = useState([]);
-
-  const patientDetails = async () => {
-    const response = await fetch(API_URL);
-    const data = await response.json();
-    setPatients(data);
-  };
-  useEffect(() => {
-    patientDetails();
-  }, []);
-
+  const { id } = useParams();
+  const patient = useLoaderData();
   return (
     <>
       <Navbar />
+      <p>{patient.building_name}</p>
+
       <div className="patient-card-container">
-        {patients?.length > 0 ? (
+        {Object.keys(id).length > 0 ? (
           <>
-            {patients.map((patient) => (
-              <PatientCard patient={patient} />
-            ))}
+            <PatientCard admit={patient} />
           </>
         ) : (
           <div className="empty-patients">
@@ -38,3 +30,9 @@ const PatientPage = () => {
 };
 
 export default PatientPage;
+
+export const patientLoader = async ({ params }) => {
+  const { id } = params;
+  const response = await fetch(API_URL + id);
+  return response.json();
+};
