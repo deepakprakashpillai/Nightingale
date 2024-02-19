@@ -17,7 +17,7 @@ const Navbar = () => {
                 <img src={patientIcon} alt="" />
                 <p>PATIENTS</p>
             </NavLink>
-            <NavLink to="/home" exact className="item">
+            <NavLink to="/precaution" exact className="item">
                 <img src={precautionIcon} alt="" />
                 <p>PRECAUTIONS</p>
             </NavLink>   

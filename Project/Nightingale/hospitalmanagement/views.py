@@ -169,8 +169,11 @@ def medicine_details(request, id):
 
 @api_view(['GET', 'POST'])
 def diseases_details(request):
+    search_term = request.query_params.get('search')
     if request.method == 'GET':
         all_diseases = Disease.objects.all()
+        if search_term is not None:
+            all_diseases = all_diseases.filter(name__icontains=search_term)
         serializer = DiseaseSerializer(all_diseases, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':

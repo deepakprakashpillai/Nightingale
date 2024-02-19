@@ -45,10 +45,12 @@ class Patient(models.Model):
 
 class Disease(models.Model):
     name = models.CharField(max_length=30)
+
     precaution_1 = models.CharField(max_length=250)
     precaution_2 = models.CharField(max_length=250)
     precaution_3 = models.CharField(max_length=250)
     description = models.CharField(max_length=250)
+    symptoms = models.CharField(max_length=250)
 
     def __str__(self):
         return self.name
@@ -87,5 +89,3 @@ class Admitted(models.Model):
 
     def __str__(self):
         return f'{self.patient.name} in Bed {self.bed_no}| Room {self.room_no}'
-    
-

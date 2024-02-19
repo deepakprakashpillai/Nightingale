@@ -10,6 +10,7 @@ import HomePage, { admitLoader } from "./pages/HomePage";
 import PatientPage, { patientLoader } from "./pages/PatientPage";
 import ErrorPage from "./pages/ErrorPage";
 import SupportPage, { doctorLoader } from "./pages/SupportPage";
+import PrecautionPage from "./pages/PrecautionPage";
 
 // Example
 const router = createBrowserRouter(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
         <Route path=":id" element={<PatientPage />} loader={patientLoader} />
       </Route>
       <Route path="support" element={<SupportPage />} />
+      <Route path="precaution" element={<PrecautionPage />} />
     </Route>
   )
 );
