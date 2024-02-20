@@ -216,8 +216,14 @@ def disease_details(request, id):
 
 @api_view(['GET'])
 def all_admitted_details(request):
-    all_admits = Admitted.objects.select_related(
-        'patient').prefetch_related('disease', 'doctor').all()
+    search_term_floor = request.query_params.get('floor')
+    search_term__building = request.query_params.get('building')
+    try:
+        all_admits = Admitted.objects.select_related(
+            'patient').prefetch_related('disease', 'doctor').filter(floor_no__exact=search_term_floor).filter(building_name__iexact=search_term__building)
+
+    except Admitted.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
     serializer = AdmittedSerializer(all_admits, many=True)
     return Response(serializer.data)
 

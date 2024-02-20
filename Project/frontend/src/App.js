@@ -16,8 +16,8 @@ import PrecautionPage from "./pages/PrecautionPage";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
-      <Route index element={<HomePage />} loader={admitLoader} />
-      <Route path="home" element={<HomePage />} loader={admitLoader} />
+      <Route index element={<HomePage />} />
+      <Route path="home" element={<HomePage />} />
       <Route path="patient">
         <Route index element={<PatientPage />} />
         <Route path=":id" element={<PatientPage />} loader={patientLoader} />
