@@ -24,3 +24,24 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.medication-container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 80px;
+}
+
+.medication-cards{
+    width: 80%;
+    background-color: aqua;
+    margin-top: 10px;
+    padding-left: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.medication-cards button{
+    height: 40px;
+}

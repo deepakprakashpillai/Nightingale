@@ -72,9 +72,13 @@ class Medicine(models.Model):
 class Medication(models.Model):
     medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-    timing = models.TimeField()
+    timing = models.DateTimeField()
+    dosage = models.CharField(max_length=30, default="1", null=True)
     administered_by = models.ForeignKey(
-        Nurse, blank=True, on_delete=models.CASCADE)  # Change cascade to protected
+        Nurse, blank=True, null=True, on_delete=models.CASCADE)  # Change cascade to protected
+
+    def __str__(self):
+        return f'{self.medicine} to {self.patient} on {self.timing}'
 
 
 class Admitted(models.Model):
@@ -89,3 +93,14 @@ class Admitted(models.Model):
 
     def __str__(self):
         return f'{self.patient.name} in Bed {self.bed_no}| Room {self.room_no}'
+
+
+class MedicationHistory(models.Model):
+    medicine_name = models.CharField(max_length=255)
+    patient_name = models.CharField(max_length=255)
+    timing = models.DateTimeField()
+    dosage = models.CharField(max_length=255)
+    administered_time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.medicine_name} to {self.patient_name} on {self.administered_time}'

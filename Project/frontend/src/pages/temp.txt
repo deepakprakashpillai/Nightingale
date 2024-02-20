@@ -1,0 +1,41 @@
+<div className="floor-building-bar">
+          <label>
+            Floor:
+            <select
+              name="floor"
+              className="floor-select"
+              value={floorNumber} // ...force the select's value to match the state variable...
+              onChange={(e) => setfloorNumber(e.target.value)}
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </label>
+          <label>
+            Building:
+            <select
+              name="building"
+              className="building-select"
+              value={buildingName} // ...force the select's value to match the state variable...
+              onChange={(e) => setBuildingName(e.target.value)}
+            >
+              <option value="RB">RB</option>
+              <option value="VB">VB</option>
+              <option value="AB">AB</option>
+              <option value="AK">AK</option>
+            </select>
+          </label>
+        </div>
+
+
+
+
+
+
+        medicine_name: medication.medicine.name,
+            patient_name: medication.patient.name,
+            timing: medication.timing,
+            dosage: medication.dosage,
+            administered_by: medication.administered_b

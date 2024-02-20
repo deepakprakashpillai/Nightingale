@@ -64,3 +64,13 @@
     border-radius: 15px;
     font-size: 12px;
 }
+
+.drop-down-menu img{
+    position: absolute;
+    display: inline-block;
+    right: 90px;
+    top: 11px;
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+}

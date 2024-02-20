@@ -33,8 +33,16 @@ img{
 }
 
 .container-nav{
-    width: 70%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.floor-building-bar{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 76px;
+    right :26px
 }

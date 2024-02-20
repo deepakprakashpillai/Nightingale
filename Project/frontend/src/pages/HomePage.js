@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import PatientCard from "../components/PatientCard";
+import AlertButton from "../components/AlertButton";
 import "./HomePage.css";
-import { useLoaderData } from "react-router-dom";
 
 const HomePage = () => {
   //Change this to change default floor
@@ -12,6 +12,7 @@ const HomePage = () => {
   const [admits, setAdmits] = useState([]);
   const [floorNumber, setfloorNumber] = useState(fl);
   const [buildingName, setBuildingName] = useState(buil);
+  const [open, setOpen] = useState(false);
 
   const API_URL =
     "http://127.0.0.1:8000/admitted?floor=" +
@@ -31,39 +32,21 @@ const HomePage = () => {
 
   const changeFloor = () => {};
 
+  const handleFloorChange = (newValue) => {
+    setfloorNumber(newValue);
+  };
+  const handleBuildingChange = (newValue) => {
+    setBuildingName(newValue);
+  };
+
   return (
     <>
-      <Navbar />
-      <div className="floor-building-bar">
-        <label>
-          Floor:
-          <select
-            name="floor"
-            className="floor-select"
-            value={floorNumber} // ...force the select's value to match the state variable...
-            onChange={(e) => setfloorNumber(e.target.value)}
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </label>
-        <label>
-          Building:
-          <select
-            name="building"
-            className="building-select"
-            value={buildingName} // ...force the select's value to match the state variable...
-            onChange={(e) => setBuildingName(e.target.value)}
-          >
-            <option value="RB">RB</option>
-            <option value="VB">VB</option>
-            <option value="AB">AB</option>
-            <option value="AK">AK</option>
-          </select>
-        </label>
-      </div>
+      <AlertButton />
+      <Navbar
+        onFloorChange={handleFloorChange}
+        onBuildingChange={handleBuildingChange}
+        isHomePage={true}
+      />
       <div className="patient-card-container">
         {admits?.length > 0 ? (
           <>

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from . models import Nurse, Doctor, Patient, Medicine, Disease, Admitted
-from . serializers import NurseSerializer, DoctorSerializer, PatientSerializer, MedicineSerializer, DiseaseSerializer, AdmittedSerializer
+from . models import Nurse, Doctor, Patient, Medicine, Disease, Admitted, Medication, MedicationHistory
+from . serializers import NurseSerializer, DoctorSerializer, PatientSerializer, MedicineSerializer, DiseaseSerializer, AdmittedSerializer, MedicationSerializer, MedicationHistorySerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -250,3 +250,49 @@ def doctor_list(request):
         return Response(status=status.HTTP_404_NOT_FOUND)
     serializer = DoctorSerializer(doctor)
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+def all_medication_details(request):
+    search_patient_name = request.query_params.get('name')
+    try:
+        all_medications = Medication.objects.select_related(
+            'patient', 'medicine', 'administered_by').filter(patient__name__icontains=search_patient_name).order_by('timing')
+
+    except Medication.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    serializer = MedicationSerializer(all_medications, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def medication_transfer(request):
+    if request.method == 'POST':
+        medication_data = request.data
+        if medication_data:
+            # Extract relevant data from the Medication object
+            medication_id = medication_data.get('id')
+            print(medication_id)
+            medicine_name = medication_data.get(
+                'medicine', {}).get('name', 'Not Available')
+            patient_name = medication_data.get(
+                'patient', {}).get('name', 'Not Available')
+            timing = medication_data.get('timing', None)
+            dosage = medication_data.get('dosage', 'Not Available')
+            medication_history_data = {
+                'medicine_name': medicine_name,
+                'patient_name': patient_name,
+                'timing': timing,
+                'dosage': dosage,
+            }
+            print(medication_history_data)
+            serializer = MedicationHistorySerializer(
+                data=medication_history_data)
+            if serializer.is_valid():
+                serializer.save()
+                med = Medication.objects.get(pk=medication_id)
+                med.delete()
+                return Response(serializer.data)
+
+    else:
+        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)

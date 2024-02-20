@@ -17,4 +17,7 @@ urlpatterns = [
     path("admitted", views.all_admitted_details),
     path("admitted/<int:id>", views.admitted_details),
     path("doctor", views.doctor_list),
+    path("medication", views.all_medication_details),
+    path("med", views.medication_transfer),
+
 ]

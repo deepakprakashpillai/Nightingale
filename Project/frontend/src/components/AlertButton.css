@@ -1,0 +1,56 @@
+
+
+.alert-button img{
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    padding: 0;
+    position: fixed;
+    top: 380px;
+    right: 50px;
+}
+
+.alert-types{
+    position:fixed;
+    top: 158px;
+    right: 53px;
+    display: flex;
+    flex-direction: column;
+}
+
+.alert-item{
+height: 46px;
+width: 46px;
+border-radius: 25px;
+border: 2px solid black;
+margin-bottom: 5px;
+margin-left: 10px;
+}
+
+.alert-item:hover{
+    height: 42px;
+width: 42px;;
+border: 4px solid black;
+}
+
+.alert-row{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.red-alert{
+    background-color: red;
+}
+
+.blue-alert{
+    background-color: blue;
+}
+
+.yellow-alert{
+    background-color: yellow;
+}
+
+.pink-alert{
+    background-color: pink;
+}

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import DoctorCard from "../components/DoctorCard";
 import DiseaseCard from "../components/DiseaseCard";
 import Navbar from "../components/Navbar";
-import SearchBar from "../components/SearchBar";
 import "./SupportPage.css";
 import { useLoaderData } from "react-router-dom";
+import AlertButton from "../components/AlertButton";
 
 const PrecautionPage = () => {
   const [diseases, setDiseases] = useState([]);
@@ -19,6 +19,7 @@ const PrecautionPage = () => {
 
   return (
     <>
+      <AlertButton />
       <Navbar />
       <input
         type="search"
