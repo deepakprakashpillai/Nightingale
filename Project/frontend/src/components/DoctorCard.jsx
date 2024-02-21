@@ -3,13 +3,16 @@ import React from 'react';
 const DoctorCard = ({doctor}) => {
     
     return (
-        <div>
+        <div className='doctor-card'>
+            <div className="card-col">
             <div>
                 <p>{doctor.name}</p>
             </div>
         <div>
             <p>{doctor.qualification}</p>
         </div>
+            </div>
+        <div className="card-col">
         <div>
             <p>{doctor.specialization}</p>
         </div>
@@ -17,6 +20,8 @@ const DoctorCard = ({doctor}) => {
             <p>{doctor.phone_no}</p>
         </div>
             
+        </div>
+        
         </div>
     );
 }

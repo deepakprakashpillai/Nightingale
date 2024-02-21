@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import DoctorCard from "../components/DoctorCard";
 import DiseaseCard from "../components/DiseaseCard";
 import Navbar from "../components/Navbar";
-import "./SupportPage.css";
+import "./PrecautionPage.css";
 import { useLoaderData } from "react-router-dom";
 import AlertButton from "../components/AlertButton";
 
@@ -21,14 +21,21 @@ const PrecautionPage = () => {
     <>
       <AlertButton />
       <Navbar />
-      <input
-        type="search"
-        placeholder="search disease"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-      />
-      <input type="submit" onClick={diseaseDetails} />
-      <div>
+      <div className="input-container">
+        <input
+          type="search"
+          placeholder="Search disease"
+          className="input-searchbox"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <input
+          type="submit"
+          className="input-button"
+          onClick={diseaseDetails}
+        />
+      </div>
+      <div className="disease-card-container">
         {diseases?.length > 0 ? (
           <>
             {diseases.map((disease) => (
@@ -36,9 +43,7 @@ const PrecautionPage = () => {
             ))}
           </>
         ) : (
-          <div>
             <h2>Search Diseases!</h2>
-          </div>
         )}
       </div>
     </>

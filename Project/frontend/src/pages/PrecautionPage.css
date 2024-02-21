@@ -1,0 +1,36 @@
+.input-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 130px;
+    padding-right: 130px;
+    padding-top: 30px;
+}
+
+.input-searchbox{
+    width: 400px;
+    height:50px;
+    border-radius: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+
+.input-button{
+    height: 40px;
+    width: 100px;
+    border-radius: 15px;
+}
+
+.disease-card-container{
+    padding-top: 30px;
+    padding-left: 100px;
+}
+
+.disease-card{
+    width: 540px;
+    padding:30px;
+    background-color: aquamarine;
+    border-radius: 30px;
+    box-shadow: 49px 44px 82px -41px rgba(0,0,0,0.47);
+}

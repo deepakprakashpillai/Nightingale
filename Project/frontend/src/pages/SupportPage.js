@@ -27,9 +27,10 @@ const SupportPage = () => {
         type="search"
         placeholder="search doctor"
         value={searchText}
+        className="doc-search"
         onChange={(e) => setSearchText(e.target.value)}
       />
-      <div>
+      <div className="doc-card-container">
         {doctors?.length > 0 ? (
           <>
             {doctors.map((doctor) => (

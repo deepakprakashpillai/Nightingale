@@ -43,6 +43,16 @@ img{
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 76px;
-    right :26px
+    top: 70px;
+    right :35px;
+    background-color: #E8F3F1;
+    padding: 20px;
+    padding-top: 0;
+
+}
+
+.select-item{
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
 }

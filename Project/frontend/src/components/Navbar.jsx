@@ -49,11 +49,11 @@ const Navbar = ({ onFloorChange, onBuildingChange,isHomePage }) => {
           {open && (
             <div>
               <div className="floor-building-bar">
-                <label>
+                <label className="floor-select select-item">
                   Floor:
                   <select
                     name="floor"
-                    className="floor-select"
+                    className="floor-select-dropdown"
                     value={floorNumber} // ...force the select's value to match the state variable...
                     onChange={handleFloorChange}
                   >
@@ -63,11 +63,11 @@ const Navbar = ({ onFloorChange, onBuildingChange,isHomePage }) => {
                     <option value="4">4</option>
                   </select>
                 </label>
-                <label>
+                <label className="building-select select-item">
                   Building:
                   <select
                     name="building"
-                    className="building-select"
+                    className="building-select-dropdown"
                     value={buildingName} // ...force the select's value to match the state variable...
                     onChange={handleBuildingChange}
                   >
