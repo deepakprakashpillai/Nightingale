@@ -18,7 +18,7 @@ const MedicationCard = ({medication,onMedicationPosted}) => {
     return (
         <div className='medication-cards'>
             <div className="medication-card-data">
-            <p>Meicine : {medication.medicine.name}</p>
+            <p>Medicine : {medication.medicine.name}</p>
             <p>Dosage : {medication.dosage}</p>
             <p>Time : {medication.timing}</p>
             </div>

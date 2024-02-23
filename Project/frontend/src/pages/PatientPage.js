@@ -4,15 +4,18 @@ import { useLoaderData, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import AlertButton from "../components/AlertButton";
 import MedicationCard from "../components/MedicationCard";
+import MedicationHistoryCard from "../components/MedicationHistoryCard";
 import PatientCard from "../components/PatientCard";
 import "./PatientPage.css";
 
 const API_URL = "http://127.0.0.1:8000/admitted/";
 
 const API_URL_Med = "http://127.0.0.1:8000/medication?name=";
+const API_URL_Med_History = "http://127.0.0.1:8000/medhistory/";
 
 const PatientPage = () => {
   const [medications, setMedications] = useState([]);
+  const [medicationhistorys, setMedicationHistorys] = useState([]);
   const { id } = useParams();
   const patient = useLoaderData();
   let patient_name = "";
@@ -27,12 +30,24 @@ const PatientPage = () => {
     console.log(data);
   };
 
+  const fetchMedicationsHistory = async () => {
+    const patient_name = patient.patient.name.split(" ")[0];
+    console.log(patient.patient.name);
+    const response = await fetch(API_URL_Med_History + patient_name);
+    console.log(API_URL_Med + patient_name);
+    const data = await response.json();
+    setMedicationHistorys(data);
+    console.log(data);
+  };
+
   useEffect(() => {
     fetchMedications();
+    fetchMedicationsHistory();
   }, [patient]);
 
   const onMedicationPosted = () => {
     fetchMedications();
+    fetchMedicationsHistory();
   };
   return (
     <>
@@ -49,6 +64,7 @@ const PatientPage = () => {
         </div>
       )}
       <div className="medication-container">
+        <h2>Medications List</h2>
         {medications?.length > 0 ? (
           <>
             {medications.map((medication) => (
@@ -56,6 +72,21 @@ const PatientPage = () => {
                 medication={medication}
                 onMedicationPosted={onMedicationPosted}
               />
+            ))}
+          </>
+        ) : (
+          <div>
+            <h4>No medications scheduled</h4>
+          </div>
+        )}
+      </div>
+
+      <div className="medication-container">
+        <h2>Medications History</h2>
+        {medicationhistorys?.length > 0 ? (
+          <>
+            {medicationhistorys.map((medicationhistory) => (
+              <MedicationHistoryCard medicationhistory={medicationhistory} />
             ))}
           </>
         ) : (

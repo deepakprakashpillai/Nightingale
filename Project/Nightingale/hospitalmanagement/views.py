@@ -296,3 +296,15 @@ def medication_transfer(request):
 
     else:
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+@api_view(['GET'])
+def medication_history(request, name):
+    try:
+        med_his = MedicationHistory.objects.filter(
+            patient_name__icontains=name).order_by('-administered_time')
+    except MedicationHistory.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        serializer = MedicationHistorySerializer(med_his, many=True)
+        return Response(serializer.data)
