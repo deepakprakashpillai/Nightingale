@@ -44,13 +44,10 @@ class Patient(models.Model):
 
 
 class Disease(models.Model):
-    name = models.CharField(max_length=30)
-
-    precaution_1 = models.CharField(max_length=250)
-    precaution_2 = models.CharField(max_length=250)
-    precaution_3 = models.CharField(max_length=250)
-    description = models.CharField(max_length=250)
-    symptoms = models.CharField(max_length=250)
+    name = models.CharField(max_length=60)
+    symptoms = models.CharField(max_length=400)
+    description = models.CharField(max_length=1300)
+    common_medicine = models.CharField(max_length=700, default="not available")
 
     def __str__(self):
         return self.name

@@ -25,7 +25,7 @@ SECRET_KEY = 'zi^%nr8jsj6l--&=4om=e_dbavizbu^)5zw-o_*09*q7ty___p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-CORS_ORIGIN_ALLOW_ALL=True
+CORS_ORIGIN_ALLOW_ALL = True
 ALLOWED_HOSTS = []
 
 
@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'hospitalmanagement.apps.HospitalmanagementConfig',
+    'alert.apps.AlertConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -81,7 +82,7 @@ WSGI_APPLICATION = 'Nightingale.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hospitalmanagement',
+        'NAME': 'hosp',
         'USER': 'root',
         'PASSWORD': 'mypass',
         'HOST': 'localhost',  # or the hostname where your MySQL server is running

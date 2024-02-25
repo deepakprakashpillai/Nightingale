@@ -11,19 +11,13 @@ const DiseaseCard = ({disease}) => {
                 <p><h3>Name : {disease.name}</h3></p>
             </div>
             <div>
-                <p>Precaution 1 : {disease.precaution_1}</p>
-            </div>
-            <div>
-                <p>Precaution 2 : {disease.precaution_2}</p>
-            </div>
-            <div>
-                <p>Precaution 3 : {disease.precaution_3}</p>
-            </div>
-            <div>
                 <p>Description : {disease.description}</p>
             </div>
             <div>
                 <p>Symptoms : {disease.symptoms}</p>
+            </div>
+            <div>
+                <p>Common Medicine : {disease.common_medicine}</p>
             </div>
             
         </div>
