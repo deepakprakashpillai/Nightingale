@@ -1,20 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
-
-class Nurse(models.Model):
-    name = models.CharField(max_length=30)
-    position = models.CharField(max_length=30)
-    address = models.CharField(max_length=100)
-    phone_no = models.PositiveBigIntegerField()
-    sex = models.CharField(max_length=1)
-    dob = models.DateField()
-    age = models.PositiveIntegerField()
-
-    def __str__(self):
-        return self.name
-
 
 class Doctor(models.Model):
     name = models.CharField(max_length=30)
@@ -71,8 +56,7 @@ class Medication(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     timing = models.DateTimeField()
     dosage = models.CharField(max_length=30, default="1", null=True)
-    administered_by = models.ForeignKey(
-        Nurse, blank=True, null=True, on_delete=models.CASCADE)  # Change cascade to protected
+    # Change cascade to protected
 
     def __str__(self):
         return f'{self.medicine} to {self.patient} on {self.timing}'

@@ -6,8 +6,40 @@ import precautionIcon from "../assets/precaution-icon.svg"
 import { NavLink } from 'react-router-dom';
 import  { useEffect, useState } from "react";
 import menuIcon from "../assets/menu-icon.png";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ onFloorChange, onBuildingChange,isHomePage }) => {
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    
+    try {
+      // Retrieve the authentication token from localStorage
+      const authToken = localStorage.getItem('token');
+      console.log(`Token ${authToken}`)
+
+      const response = await fetch('http://localhost:8000/auth/logout/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Token ${authToken}`,
+        },
+      });
+
+      if (response.ok) {
+        console.log('Logout successful');
+        // Handle any client-side logout actions
+
+        // Clear the authentication token from localStorage
+        localStorage.removeItem('token');
+        navigate("/");
+      } else {
+        console.error('Logout failed');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  };
+  
     let fl = 2;
   let buil = "RB";
   const [floorNumber, setfloorNumber] = useState(fl);
@@ -77,6 +109,7 @@ const Navbar = ({ onFloorChange, onBuildingChange,isHomePage }) => {
                     <option value="AK">AK</option>
                   </select>
                 </label>
+                <button onClick={handleLogout}>Log out</button>
               </div>
             </div>
           )}

@@ -7,12 +7,19 @@ import { useLoaderData } from "react-router-dom";
 import AlertButton from "../components/AlertButton";
 
 const PrecautionPage = () => {
+  const authToken = localStorage.getItem("token");
   const [diseases, setDiseases] = useState([]);
   const [searchText, setSearchText] = useState("");
   const API_URL = "http://127.0.0.1:8000/diseases?search=" + searchText;
 
   const diseaseDetails = async () => {
-    const response = await fetch(API_URL);
+    const response = await fetch(API_URL, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${authToken}`,
+      },
+    });
     const data = await response.json();
     setDiseases(data);
   };
@@ -43,7 +50,7 @@ const PrecautionPage = () => {
             ))}
           </>
         ) : (
-            <h2>Search Diseases!</h2>
+          <h2>Search Diseases!</h2>
         )}
       </div>
     </>

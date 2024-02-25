@@ -12,7 +12,7 @@ const API_URL = "http://127.0.0.1:8000/admitted/";
 
 const API_URL_Med = "http://127.0.0.1:8000/medication?name=";
 const API_URL_Med_History = "http://127.0.0.1:8000/medhistory/";
-
+const authToken = localStorage.getItem("token");
 const PatientPage = () => {
   const [medications, setMedications] = useState([]);
   const [medicationhistorys, setMedicationHistorys] = useState([]);
@@ -23,7 +23,13 @@ const PatientPage = () => {
   const fetchMedications = async () => {
     const patient_name = patient.patient.name.split(" ")[0];
     console.log(patient.patient.name);
-    const response = await fetch(API_URL_Med + patient_name);
+    const response = await fetch(API_URL_Med + patient_name, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${authToken}`,
+      },
+    });
     console.log(API_URL_Med + patient_name);
     const data = await response.json();
     setMedications(data);
@@ -33,7 +39,13 @@ const PatientPage = () => {
   const fetchMedicationsHistory = async () => {
     const patient_name = patient.patient.name.split(" ")[0];
     console.log(patient.patient.name);
-    const response = await fetch(API_URL_Med_History + patient_name);
+    const response = await fetch(API_URL_Med_History + patient_name, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${authToken}`,
+      },
+    });
     console.log(API_URL_Med + patient_name);
     const data = await response.json();
     setMedicationHistorys(data);
@@ -103,6 +115,12 @@ export default PatientPage;
 
 export const patientLoader = async ({ params }) => {
   const { id } = params;
-  const response = await fetch(API_URL + id);
+  const response = await fetch(API_URL + id, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Token ${authToken}`,
+    },
+  });
   return response.json();
 };

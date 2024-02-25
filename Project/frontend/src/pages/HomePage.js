@@ -8,7 +8,7 @@ const HomePage = () => {
   //Change this to change default floor
   let fl = 2;
   let buil = "RB";
-
+  const authToken = localStorage.getItem("token");
   const [admits, setAdmits] = useState([]);
   const [floorNumber, setfloorNumber] = useState(fl);
   const [buildingName, setBuildingName] = useState(buil);
@@ -21,7 +21,13 @@ const HomePage = () => {
     buildingName;
 
   const admitDetails = async () => {
-    const response = await fetch(API_URL);
+    const response = await fetch(API_URL, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${authToken}`,
+      },
+    });
     const data = await response.json();
     setAdmits(data);
   };

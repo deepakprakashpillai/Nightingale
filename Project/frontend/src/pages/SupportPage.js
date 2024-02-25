@@ -6,12 +6,19 @@ import { useLoaderData } from "react-router-dom";
 import AlertButton from "../components/AlertButton";
 
 const SupportPage = () => {
+  const authToken = localStorage.getItem("token");
   const [doctors, setDoctors] = useState([]);
   const [searchText, setSearchText] = useState("");
   const API_URL = "http://127.0.0.1:8000/doctors?search=" + searchText;
 
   const doctorDetails = async () => {
-    const response = await fetch(API_URL);
+    const response = await fetch(API_URL, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${authToken}`,
+      },
+    });
     const data = await response.json();
     setDoctors(data);
   };
