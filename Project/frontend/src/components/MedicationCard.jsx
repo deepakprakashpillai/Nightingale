@@ -4,9 +4,16 @@ import Axios from 'axios';
 const POST_URL = "http://127.0.0.1:8000/med"
 
 const MedicationCard = ({medication,onMedicationPosted}) => {
+    const authToken = localStorage.getItem("token");
     const handleClick = async () => {
         try {
-            await Axios.post(POST_URL, medication);
+            await Axios.post(POST_URL, medication,{
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Token ${authToken}`,
+                },
+              });
             console.log("Medication successfully posted.");
             onMedicationPosted();
         } catch (error) {
