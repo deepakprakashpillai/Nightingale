@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./LoginPage.css";
+import logo from "../assets/logowithname.png";
 const LOGIN_URL = "http://localhost:8000/auth/login/";
 
 const LoginPage = () => {
@@ -25,7 +27,7 @@ const LoginPage = () => {
       if (response.ok) {
         const data = await response.json();
         console.log("Login successful:", data);
-        localStorage.setItem("token" , data.token)
+        localStorage.setItem("token", data.token);
         navigate("/home");
         // Save the token and user data as needed
       } else {
@@ -37,21 +39,28 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
-    </div>
+    <>
+      <img src={logo} alt="Logo" className="logo" />
+      <div className="inp-container">
+        <input
+          type="text"
+          placeholder="Username"
+          className="inp-field"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          className="inp-field"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button onClick={handleLogin} className="inp-but">
+          Login
+        </button>
+      </div>
+    </>
   );
 };
 
