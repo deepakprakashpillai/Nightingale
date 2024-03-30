@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
 .patient-card-container{
     display: flex;
     flex-direction: row;
@@ -10,58 +12,66 @@
 .card{
     width: 350px;
     height: 170px;
-    background-color: #E8F3F1;
+    background-color: #75BCD2;
     border-radius: 15px;
     box-shadow: 49px 44px 82px -41px rgba(0,0,0,0.47);
-    padding: 10px;
-    margin-top: 20px;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Inter", sans-serif;
+    
 }
 
-.row-4-5{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+
 
 .row-1 p{
     font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+    padding-top: 40px;
+    padding-left: 25px;
+    color: aliceblue;
 }
 
 .row-2 p{
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0;
+    padding-top: 5px;
+    padding-left: 25px;
+    
 }
 
 .row-3 p{
-    font-size: 13px;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+    padding-top: 10px;
+    padding-left: 25px;
+    color: aliceblue;
 }
 
 .row-4 p{
-    font-size: 13px;
-    font-weight: 900;
+    font-size: 16px;
+    font-weight: 700;
     display: inline-block;
     margin: 0;
+    padding-left: 25px;
+    padding-top: 5px;
+    
 }
 
-.row-5{
-    display: flex;
-    justify-content: end;
-    margin: 0;
+.col-1{
+    
 }
-
-.row-5 p{
-    margin: 0;
-}
-
-.row-5 button{
-    border: none;
-    margin-right: 20px;
-    background-color: #199A8E;
-    color: white;
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 15px;
-    font-size: 12px;
+.col-2{
+    height: 170px;
+    width: 150px;
+    border: 0;
+    background-color: azure;
+    border: 5px solid #75BCD2;
+border-radius: 0 15px 15px 0;
+    color: #75BCD2;
 }
 
 .drop-down-menu img{

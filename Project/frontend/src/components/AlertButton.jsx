@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./AlertButton.css"
-import alertIcon from "../assets/alert-icon.png"
+import alertIcon from "../assets/alert-icon-new.png"
 
 const ALERT_API = "http://127.0.0.1:8000/alert/"
 

@@ -109,7 +109,7 @@ const Navbar = ({ onFloorChange, onBuildingChange,isHomePage }) => {
                     <option value="AK">AK</option>
                   </select>
                 </label>
-                <button onClick={handleLogout}>Log out</button>
+                <button onClick={handleLogout} className='logout-button'>Log out</button>
               </div>
             </div>
           )}

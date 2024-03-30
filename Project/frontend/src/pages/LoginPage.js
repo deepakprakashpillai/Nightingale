@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginPage.css";
-import logo from "../assets/logowithname.png";
+import logo from "../assets/logo.png";
+import bgelement from "../assets/login-page-bg.png"
 const LOGIN_URL = "http://localhost:8000/auth/login/";
 
 const LoginPage = () => {
@@ -40,7 +41,11 @@ const LoginPage = () => {
 
   return (
     <>
+      <div className="logodiv">
       <img src={logo} alt="Logo" className="logo" />
+      <h2 className="logo-name">NIGHTINGALE</h2>
+      </div>
+      
       <div className="inp-container">
         <input
           type="text"
@@ -49,6 +54,7 @@ const LoginPage = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        <span class="user-icon"></span>
         <input
           type="password"
           placeholder="Password"
@@ -56,10 +62,12 @@ const LoginPage = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <span class="pass-icon"></span>
         <button onClick={handleLogin} className="inp-but">
-          Login
+          SUBMIT
         </button>
       </div>
+      <img src={bgelement} alt="design" className="bg-design" />
     </>
   );
 };

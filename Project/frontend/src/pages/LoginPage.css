@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
 .inp-container{
     display: flex;
     flex-direction: column;
@@ -7,30 +9,84 @@
     left: 140px;
     justify-content: center;
     align-items: center;
-
 }
 
 
 .inp-field{
-    width: 100%;
-    height: 40px;
-    border-radius: 20px;
+    width: calc(100% - 80px);
+    height: 50px;
+    border-radius: 6px;
     margin-bottom: 20px;
-    padding-left: 20px;
+    padding-left: 80px;
+    border: 0px;
 }
 
 .inp-but{
-    width: 250px;
+    width: 170px;
     height: 50px;
-    border-radius: 15px;
-    background-color: aqua;
+    border-radius: 6px;
+    border: 0;
+    background-color: #1c1c1c;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: azure;
+    
+}
+.logo-div{
+    display: flex;
+    flex-direction: column;
+}
+.logo{
+    width: 60px;
+    height: auto;
+    top: 70px;
+    left: 270px;
+    position: relative;
 }
 
-.logo{
-    width: 450px;
-    height: auto;
-    position: absolute;
-    top: -30px;
-    left: 140px;
+.logo-name{
+    font-size: 24px;
+    display: inline-block;
+    position: relative;
+    left: 280px;
+    top:37px;
+    font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
 
+.bg-design{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    top: auto;
+    width: 200px;
+    height: auto;
+    padding-bottom: 0;
+}
+
+.user-icon{
+    position: absolute;
+    top: 11px;
+    left: 29px;
+    background-image: url("../assets/user-icon.png");
+    width: 30px; /* Adjust according to your icon size */
+    height: 30px; /* Adjust according to your icon size */
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.pass-icon{
+    position: absolute;
+    top: 81px;
+    left: 29px;
+    background-image: url("../assets/pass-icon.png");
+    width: 30px; /* Adjust according to your icon size */
+    height: 30px; /* Adjust according to your icon size */
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
