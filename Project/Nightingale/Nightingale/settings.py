@@ -96,6 +96,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'defaultdb',
         'USER': 'avnadmin',
+        'PASSWORD': 'AVNS_lUb200CqXVXcn8bfRrz',  # AVNS_lUb200CqXVXcn8bfRrz
+        # or the hostname where your MySQL server is running
         'HOST': 'mysql-6b109cd-nightingale.a.aivencloud.com',
         'PORT': '27686',      # or the port on which your MySQL server is listening
     }
