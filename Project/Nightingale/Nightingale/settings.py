@@ -94,11 +94,11 @@ WSGI_APPLICATION = 'Nightingale.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hosp',
-        'USER': 'root',
-        'PASSWORD': 'mypass',
-        'HOST': 'localhost',  # or the hostname where your MySQL server is running
-        'PORT': '3306',      # or the port on which your MySQL server is listening
+        'NAME': 'defaultdb',
+        'USER': 'avnadmin',
+        'PASSWORD': 'AVNS_lUb200CqXVXcn8bfRrz',
+        'HOST': 'mysql-6b109cd-nightingale.a.aivencloud.com',  # or the hostname where your MySQL server is running
+        'PORT': '27686',      # or the port on which your MySQL server is listening
     }
 }
 
