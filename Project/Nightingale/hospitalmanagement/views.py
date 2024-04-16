@@ -96,6 +96,8 @@ def patients_details(request):
     if request.method == 'GET':
         all_patients = Patient.objects.all()
         serializer = PatientSerializer(all_patients, many=True)
+        # set_name("Unavailable")
+        # set_age("Unavailable")
         return Response(serializer.data)
     elif request.method == 'POST':
         serializer = PatientSerializer(data=request.data)
@@ -114,6 +116,7 @@ def patient_details(request, id):
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'GET':
         serializer = PatientSerializer(patient)
+
         return Response(serializer.data)
     elif request.method == 'PUT':
         serializer = PatientSerializer(patient, data=request.data)

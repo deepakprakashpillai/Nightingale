@@ -2,14 +2,27 @@ import React, { useState } from 'react';
 import "./AlertButton.css"
 import alertIcon from "../assets/alert-icon-new.png"
 
-const ALERT_API = "http://127.0.0.1:8000/alert/"
+const ALERT_API = "http://127.0.0.1:8000/alert"
 
 const AlertButton = () => {
     const [open, setOpen] = useState(false);
 
+    let floor = localStorage.getItem("floor");
+    let building = localStorage.getItem("building");
+    let patient_name = localStorage.getItem("patient_name");
+    let patient_age = localStorage.getItem("patient_age");
+    let room = localStorage.getItem("room");
+    let bed = localStorage.getItem("bed");
+    let disease = localStorage.getItem("disease");
+    let doctor_name = localStorage.getItem("doctor_name");
+
+    let details = floor + "_" + building + "_" + patient_name + "_" + patient_age + "_" + room + "_" + bed + "_" + disease + "_" + doctor_name;
+
+
     const handleButtonPress = async (type) => {
         try {
-            const response = await fetch(ALERT_API+type);
+            console.log(ALERT_API+"?type="+type+"&details="+details);
+            const response = await fetch(ALERT_API+"?type="+type+"&details="+details);
             if (response.ok) {
                 console.log('Signal sent successfully');
             } else {

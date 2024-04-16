@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 import logo from "../assets/logo.png";
-import bgelement from "../assets/login-page-bg.png"
+import bgelement from "../assets/login-page-bg.png";
 const LOGIN_URL = "http://localhost:8000/auth/login/";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  
 
   const handleLogin = async () => {
     try {
@@ -42,10 +44,10 @@ const LoginPage = () => {
   return (
     <>
       <div className="logodiv">
-      <img src={logo} alt="Logo" className="logo" />
-      <h2 className="logo-name">NIGHTINGALE</h2>
+        <img src={logo} alt="Logo" className="logo" />
+        <h2 className="logo-name">NIGHTINGALE</h2>
       </div>
-      
+
       <div className="inp-container">
         <input
           type="text"

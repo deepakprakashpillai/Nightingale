@@ -14,6 +14,16 @@ const HomePage = () => {
   const [buildingName, setBuildingName] = useState(buil);
   const [open, setOpen] = useState(false);
 
+  //localStorage.setItem("floor", fl);
+  //localStorage.setItem("building", buil);
+
+  localStorage.setItem("patient_name", "Not available");
+  localStorage.setItem("patient_age", "Not available");
+  localStorage.setItem("room", "Unavailabale");
+  localStorage.setItem("bed", "Unavailabale");
+  localStorage.setItem("disease", "Unavailable");
+  localStorage.setItem("doctor_name", "Unavailable");
+
   const API_URL =
     "http://127.0.0.1:8000/admitted?floor=" +
     floorNumber +
@@ -40,9 +50,11 @@ const HomePage = () => {
 
   const handleFloorChange = (newValue) => {
     setfloorNumber(newValue);
+    localStorage.setItem("floor", newValue);
   };
   const handleBuildingChange = (newValue) => {
     setBuildingName(newValue);
+    localStorage.setItem("building", newValue);
   };
 
   return (

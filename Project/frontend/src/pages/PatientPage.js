@@ -22,6 +22,13 @@ const PatientPage = () => {
 
   const fetchMedications = async () => {
     const patient_name = patient.patient.name.split(" ")[0];
+    localStorage.setItem("patient_name", patient.patient.name);
+    localStorage.setItem("patient_age", patient.patient.age);
+    localStorage.setItem("room", patient.room_no);
+    localStorage.setItem("bed", patient.bed_no);
+    localStorage.setItem("disease", patient.disease[0].name);
+    localStorage.setItem("doctor_name", patient.doctor[0].name);
+
     console.log(patient.patient.name);
     const response = await fetch(API_URL_Med + patient_name, {
       method: "GET",
