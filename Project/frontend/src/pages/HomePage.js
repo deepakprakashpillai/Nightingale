@@ -14,8 +14,8 @@ const HomePage = () => {
   const [buildingName, setBuildingName] = useState(buil);
   const [open, setOpen] = useState(false);
 
-  //localStorage.setItem("floor", fl);
-  //localStorage.setItem("building", buil);
+  localStorage.setItem("floor", fl);
+  localStorage.setItem("building", buil);
 
   localStorage.setItem("patient_name", "Not available");
   localStorage.setItem("patient_age", "Not available");

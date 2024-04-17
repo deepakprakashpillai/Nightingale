@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./AlertButton.css"
 import alertIcon from "../assets/alert-icon-new.png"
+import Swal from 'sweetalert2'
 
 const ALERT_API = "http://127.0.0.1:8000/alert"
 
@@ -32,6 +33,11 @@ const AlertButton = () => {
             console.error('An error occurred:', error);
         }
         setOpen(false);
+        Swal.fire({
+            title: type+" Alert Successfull!",
+            text: "Floor no : "+floor + " Building : " + building + " Patient : " + patient_name + " Age : " + patient_age + " Room : " + room + " Bed : " + bed + " Disease : " + disease + " Doctor : " + doctor_name,
+            icon: "success"
+          });
     };
 
 
