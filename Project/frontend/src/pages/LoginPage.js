@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import "./LoginPage.css";
 import logo from "../assets/logo.png";
 import bgelement from "../assets/login-page-bg.png";
-const LOGIN_URL = "http://localhost:8000/auth/login/";
+const LOGIN_URL = `${process.env.REACT_APP_HOST_NAME}/auth/login/`;
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const LoginPage = () => {
   const handleLogin = async () => {
     try {
       console.log("Logging in with:", { username, password });
-
+      console.log()
       const response = await fetch(LOGIN_URL, {
         method: "POST",
         headers: {

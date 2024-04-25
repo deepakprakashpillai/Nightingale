@@ -10,7 +10,7 @@ const PrecautionPage = () => {
   const authToken = localStorage.getItem("token");
   const [diseases, setDiseases] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const API_URL = "http://127.0.0.1:8000/diseases?search=" + searchText;
+  const API_URL = `${process.env.REACT_APP_HOST_NAME}/diseases?search=` + searchText;
 
   const diseaseDetails = async () => {
     const response = await fetch(API_URL, {

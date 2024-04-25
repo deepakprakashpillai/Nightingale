@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 
-const POST_URL = "http://127.0.0.1:8000/med"
+const POST_URL = `${process.env.REACT_APP_HOST_NAME}/med`
 
 const MedicationCard = ({medication,onMedicationPosted}) => {
     const authToken = localStorage.getItem("token");

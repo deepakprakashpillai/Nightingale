@@ -3,7 +3,7 @@ import "./AlertButton.css"
 import alertIcon from "../assets/alert-icon-new.png"
 import Swal from 'sweetalert2'
 
-const ALERT_API = "http://127.0.0.1:8000/alert"
+const ALERT_API = `${process.env.REACT_APP_HOST_NAME}/alert`
 
 const AlertButton = () => {
     const [open, setOpen] = useState(false);

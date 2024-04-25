@@ -17,7 +17,7 @@ const Navbar = ({ onFloorChange, onBuildingChange,isHomePage }) => {
       const authToken = localStorage.getItem('token');
       console.log(`Token ${authToken}`)
 
-      const response = await fetch('http://localhost:8000/auth/logout/', {
+      const response = await fetch(`${process.env.REACT_APP_HOST_NAME}/auth/logout/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

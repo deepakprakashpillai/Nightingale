@@ -23,11 +23,10 @@ const HomePage = () => {
   localStorage.setItem("bed", "Unavailabale");
   localStorage.setItem("disease", "Unavailable");
   localStorage.setItem("doctor_name", "Unavailable");
-
   const API_URL =
-    "http://127.0.0.1:8000/admitted?floor=" +
+    `${process.env.REACT_APP_HOST_NAME}/admitted?floor=` +
     floorNumber +
-    "&building=" +
+    '&building=' +
     buildingName;
 
   const admitDetails = async () => {

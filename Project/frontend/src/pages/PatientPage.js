@@ -8,10 +8,10 @@ import MedicationHistoryCard from "../components/MedicationHistoryCard";
 import PatientCard from "../components/PatientCard";
 import "./PatientPage.css";
 
-const API_URL = "http://127.0.0.1:8000/admitted/";
+const API_URL = `${process.env.REACT_APP_HOST_NAME}/admitted/`;
 
-const API_URL_Med = "http://127.0.0.1:8000/medication?name=";
-const API_URL_Med_History = "http://127.0.0.1:8000/medhistory/";
+const API_URL_Med = `${process.env.REACT_APP_HOST_NAME}/medication?name=`;
+const API_URL_Med_History = `${process.env.REACT_APP_HOST_NAME}/medhistory/`;
 const authToken = localStorage.getItem("token");
 const PatientPage = () => {
   const [medications, setMedications] = useState([]);

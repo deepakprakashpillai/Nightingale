@@ -9,7 +9,7 @@ const SupportPage = () => {
   const authToken = localStorage.getItem("token");
   const [doctors, setDoctors] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const API_URL = "http://127.0.0.1:8000/doctors?search=" + searchText;
+  const API_URL = `${process.env.REACT_APP_HOST_NAME}/doctors?search=` + searchText;
 
   const doctorDetails = async () => {
     const response = await fetch(API_URL, {
