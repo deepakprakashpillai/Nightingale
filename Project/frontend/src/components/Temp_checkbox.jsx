@@ -1,24 +1,27 @@
-import './Checkbox.css'
+import './Checkbox.css';
 import React, { useState, useEffect } from 'react';
-
+import TempAlert from './TempAlert';
 
 const Temp_checkbox = () => {
   const [isChecked, setIsChecked] = useState(false);
+  const [temperature, setTemperature] = useState(0);
 
   const callAPI = async () => {
     try {
-      const response = await fetch('https://mocki.io/v1/186464f0-6b9e-4f79-9db2-8bbb75852315');
+      const response = await fetch('http://192.168.1.35/temperature');
       const data = await response.json();
-      console.log(data)
+      console.log(data);
+
+      setTemperature(data.temperature);
 
       if (data.temperature > 30) {
-        setIsChecked(!isChecked);
-        alert('Fever detected!');
+        setIsChecked(true);
       }
     } catch (error) {
       console.error('Error fetching temperature:', error);
     }
   };
+
   useEffect(() => {
     let intervalId;
     if (isChecked) {
@@ -33,22 +36,26 @@ const Temp_checkbox = () => {
     setIsChecked(!isChecked);
   };
 
+  const handleTempAlertClose = () => {
+    setIsChecked(false); // Reset isChecked only when the TempAlert is closed
+  };
+
   return (
     <div className='checkbox-container'>
-    <div>
-        Temperature : 
-    </div>
-    <div className='checkbox-wrapper-3'>
-    <input
-      type="checkbox"
-      checked={isChecked}
-      onChange={handleTempCheckboxChange}
-      id="cbx-3"
-    />
-    <label for="cbx-3" className="toggle"><span></span></label>
-    </div>
+      <div>Temperature :</div>
+      <div className='checkbox-wrapper-3'>
+        <input
+          type="checkbox"
+          checked={isChecked}
+          onChange={handleTempCheckboxChange}
+          id="cbx-3"
+        />
+        <label htmlFor="cbx-3" className="toggle"><span></span></label>
+      </div>
+      {isChecked && <TempAlert temperature={temperature} onClose={handleTempAlertClose} />}
     </div>
   );
 };
 
 export default Temp_checkbox;
+
