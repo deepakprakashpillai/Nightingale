@@ -46,23 +46,23 @@ const AlertButton = () => {
             <img src={alertIcon} alt="alert" />
         </a>
         {open &&
+        <div className='alert-container'>
         <div className='alert-types'>
             <div className='alert-row'>
-            <p>Red Alert</p>
-            <div className="red-alert alert-item" onClick={() => handleButtonPress("red")}/>
+            
+            <div className="red-alert alert-item" onClick={() => handleButtonPress("red")}><p>Red Alert</p></div>
             </div>
             <div className='alert-row'>
-            <p>Blue Alert</p>
-            <div className="blue-alert alert-item" onClick={() => handleButtonPress("blue")}/>
+            <div className="blue-alert alert-item" onClick={() => handleButtonPress("blue")}><p>Blue Alert</p></div>
             </div>
             <div className='alert-row'>
-            <p>Pink Alert</p>
-            <div className="pink-alert alert-item" onClick={() => handleButtonPress("pink")}/>
+            <div className="pink-alert alert-item" onClick={() => handleButtonPress("pink")}><p>Pink Alert</p></div>
             </div>
             <div className='alert-row'>
-            <p>Yellow Alert</p>
-            <div className="yellow-alert alert-item" onClick={() => handleButtonPress("yellow")}/>
+            <div className="yellow-alert alert-item" onClick={() => handleButtonPress("yellow")}><p>Yellow Alert</p></div>
             </div>
+        </div>
+        <div className='alert-blur'></div>
         </div>}
         </>
     );

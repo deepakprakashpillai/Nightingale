@@ -7,6 +7,9 @@ import MedicationCard from "../components/MedicationCard";
 import MedicationHistoryCard from "../components/MedicationHistoryCard";
 import PatientCard from "../components/PatientCard";
 import "./PatientPage.css";
+import Temp_checkbox from "../components/Temp_checkbox";
+import Ivsensor_checkbox from "../components/Ivsensor_checkbox";
+import TempAlert from "../components/TempAlert";
 
 const API_URL = `${process.env.REACT_APP_HOST_NAME}/admitted/`;
 
@@ -82,6 +85,11 @@ const PatientPage = () => {
           <h2>NO patients found!</h2>
         </div>
       )}
+      <div className="sensor-container">
+        <Ivsensor_checkbox />
+        <Temp_checkbox />
+      </div>
+
       <div className="medication-container">
         <h2>Medications List</h2>
         {medications?.length > 0 ? (
@@ -110,7 +118,7 @@ const PatientPage = () => {
           </>
         ) : (
           <div>
-            <h2>No medications Found</h2>
+            <h4>No medication History Found</h4>
           </div>
         )}
       </div>
@@ -122,6 +130,7 @@ export default PatientPage;
 
 export const patientLoader = async ({ params }) => {
   const { id } = params;
+  let authToken = localStorage.getItem("token");
   const response = await fetch(API_URL + id, {
     method: "GET",
     headers: {

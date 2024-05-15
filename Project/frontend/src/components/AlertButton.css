@@ -1,5 +1,11 @@
 
-
+.alert-blur{
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    position: fixed;
+    background-color: rgba(27, 27, 27, 0.6);
+}
 .alert-button img{
     width: 70px;
     height: auto;
@@ -8,6 +14,8 @@
     position: fixed;
     top: 380px;
     right: 50px;
+    mix-blend-mode: multiply;
+    z-index: 101;
 }
 
 .alert-types{
@@ -16,15 +24,19 @@
     right: 53px;
     display: flex;
     flex-direction: column;
+    z-index: 102;
 }
 
 .alert-item{
 height: 46px;
-width: 46px;
-border-radius: 25px;
-border: 2px solid black;
+width: 146px;
+border-radius: 8px;
 margin-bottom: 5px;
 margin-left: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+backdrop-filter: blur(5px);
 }
 
 .alert-item:hover{
@@ -40,17 +52,17 @@ border: 4px solid black;
 }
 
 .red-alert{
-    background-color: red;
+    background-color: rgba(255, 87, 51,0.7);
 }
 
 .blue-alert{
-    background-color: blue;
+    background-color: rgba(57, 67, 250,0.7);
 }
 
 .yellow-alert{
-    background-color: yellow;
+    background-color: 	rgba(255,255,0,0.7);
 }
 
 .pink-alert{
-    background-color: pink;
+    background-color: 	rgba(255,192,203,0.7);
 }

@@ -5,19 +5,19 @@ const DoctorCard = ({doctor}) => {
     return (
         <div className='doctor-card'>
             <div className="card-col">
-            <div>
+            <h4>
                 <p>{doctor.name}</p>
-            </div>
+            </h4>
         <div>
             <p>{doctor.qualification}</p>
         </div>
             </div>
         <div className="card-col">
         <div>
-            <p>{doctor.specialization}</p>
+            <p> {doctor.specialization}</p>
         </div>
         <div>
-            <p>{doctor.phone_no}</p>
+            <p>Phone no.{doctor.phone_no}</p>
         </div>
             
         </div>
