@@ -5,6 +5,12 @@ const POST_URL = `${process.env.REACT_APP_HOST_NAME}/med`
 
 const MedicationCard = ({medication,onMedicationPosted}) => {
     const authToken = localStorage.getItem("token");
+
+    const toLocalTimeString = (isoString) => {
+        const date = new Date(isoString);
+        return date.toLocaleString(); // Converts to local time string
+    };
+
     const handleClick = async () => {
         try {
             await Axios.post(POST_URL, medication,{
@@ -27,7 +33,7 @@ const MedicationCard = ({medication,onMedicationPosted}) => {
             <div className="medication-card-data">
             <p className='medicine-name'>{medication.medicine.name}</p>
             <p className='medicine-dosage'>Dosage : {medication.dosage}</p>
-            <p className='medicine-time'>Time : {medication.timing}</p>
+            <p className='medicine-time'>Time : {toLocalTimeString(medication.timing)}</p>
             </div>
             <button onClick={handleClick}></button>
         </div>

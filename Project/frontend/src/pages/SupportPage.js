@@ -46,7 +46,7 @@ const SupportPage = () => {
           </>
         ) : (
           <div>
-            <h2>NO doctors found!</h2>
+            <h2>No Doctors found!</h2>
           </div>
         )}
       </div>

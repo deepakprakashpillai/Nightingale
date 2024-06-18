@@ -73,7 +73,7 @@ const HomePage = () => {
           </>
         ) : (
           <div className="empty-patients">
-            <h2>NO patients found!</h2>
+            <h2>No Patients found!</h2>
           </div>
         )}
       </div>
