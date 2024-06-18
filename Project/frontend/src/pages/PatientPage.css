@@ -7,13 +7,16 @@
 .details-container-inner{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    background-color: #aad0d8;
+    padding-left: 140px;
+    border-radius: 5px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-size: 1.1rem;
 }
 
 .details-container-outer{
     position: relative;
-    padding-right: 100px;
-    padding-left: 100px;
 }
 .personal-item{
     margin-top: 0;
@@ -46,24 +49,30 @@
 
 .medication-cards{
     width: 80%;
-    background-color: aqua;
+    height: 90px;
+    background-color: #aad0d8;
     margin-top: 10px;
-    padding-left: 20px;
     border-radius: 20px;
     display: flex;
-    justify-content: space-around;
+    padding-left: 65px;
     align-items: center;
-}
+    justify-content: space-between;
+}   
 
 .medication-cards button{
     height: 40px;
+    width: 40px;
+    border: 0;
+    border-radius: 20px;
+    filter: drop-shadow(0px 0px 1px #000000);
+    margin-right: 100px;
 }
 
 .sensor-container{
     padding-top: 20px;
     padding-bottom: 20px;
     display: flex;
-    justify-content: space-around;
+    padding-left: 140px;
 }
 
 .temp-alert{
@@ -120,4 +129,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.patient-det-text{
+    margin-left: 80px;
+}
+
+.personal-info{
+    margin-left: 180px;
+}
+
+.checkbox-temp{
+    margin-left: 245px;
+}
+
+.medicine-name{
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.history-card{
+    height: 120px;
 }

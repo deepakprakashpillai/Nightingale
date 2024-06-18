@@ -41,7 +41,7 @@ const Temp_checkbox = () => {
   };
 
   return (
-    <div className='checkbox-container'>
+    <div className='checkbox-container checkbox-temp'>
       <div>Temperature :</div>
       <div className='checkbox-wrapper-3'>
         <input

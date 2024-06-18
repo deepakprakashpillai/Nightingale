@@ -7,17 +7,17 @@ const DiseaseCard = ({disease}) => {
     
     return (
         <div className='disease-card'>
-            <div>
-                <p><h3>Name : {disease.name}</h3></p>
+            <div className='disease-name'>
+                <p><h3>{disease.name}</h3></p>
             </div>
-            <div>
-                <p>Description : {disease.description}</p>
+            <div className='disease-desc'>
+                <p>{disease.description}</p>
             </div>
-            <div>
-                <p>Symptoms : {disease.symptoms}</p>
+            <div className='disease-symptom'>
+                <p><b>Symptoms : </b>{disease.symptoms}</p>
             </div>
-            <div>
-                <p>Common Medicine : {disease.common_medicine}</p>
+            <div className='disease-med'>
+                <p><b>Common Medicine : </b>{disease.common_medicine}</p>
             </div>
             
         </div>

@@ -4,6 +4,14 @@
     font-family: "Roboto", sans-serif;
 }
 
+p{
+    margin: 0;
+}
+
+h4{
+    margin:0;
+}
+
 .doc-search{
     position: relative;
     width: 400px;
@@ -21,18 +29,41 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    padding-top: 40px;
+
 }
 
 .doctor-card{
     width: 300px;
     height : 130px;
-    background-color: rgba(174, 254, 254, 0.6);
+    background-color:#e5eef3;
+    margin-top: 10px;
     padding-left: 30px;
     padding-right: 30px;
     border-radius: 15px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
     box-shadow: 49px 44px 82px -41px rgba(0,0,0,0.27);
 }
+
+.qual-spec{
+    display: flex;
+}
+.doc-name{
+    color: #38857c;
+    font-size: 1.5em;
+    padding-top: 1.5rem;
+    padding-bottom: 0.4rem;
+}
+
+.doc-qual{
+    padding-right: 15px;
+    font-weight: bold;
+    padding-bottom: 0.4rem;
+}
+
+.doc-spec{
+    font-weight: bold;
+    padding-bottom: 0.4rem;
+}
+

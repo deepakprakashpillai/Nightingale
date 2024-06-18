@@ -8,13 +8,12 @@ img{
 }
 
 .nav{
-    background-color: #E8F3F1;
+    background-color: #e5eef3;
     height: 70px;
     padding-left: 40px;
     padding-right: 40px;
     display: flex;
     justify-content: center;
-    font-size: ;
     position: relative;
 }
 
@@ -27,9 +26,10 @@ img{
 
 .item p{
     position: absolute;
-    bottom: 0;
+    bottom: 6px;
     font-size: 12px;
     font-weight: bold;
+    color: #38857c;
 }
 
 .container-nav{

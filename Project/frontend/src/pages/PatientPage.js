@@ -82,7 +82,7 @@ const PatientPage = () => {
         </div>
       ) : (
         <div className="empty-patients">
-          <h2>NO patients found!</h2>
+          <h2>No patients found!</h2>
         </div>
       )}
       <div className="sensor-container">

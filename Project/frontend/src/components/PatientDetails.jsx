@@ -3,7 +3,7 @@ import React from 'react';
 const PatientDetails = ({patient}) => {
     return (
         <div className='details-container-outer'>
-            <h2>Patient Details</h2>
+            <h2 className='patient-det-text'>Patient Details</h2>
             <div className='details-container-inner'>
                 <div className='basic-info'>
                     <p className="patient-name personal-item">{patient.patient.name}</p>
